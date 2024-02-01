@@ -32,11 +32,11 @@ Bureaucrat::Bureaucrat(Bureaucrat &cp){
 Bureaucrat::~Bureaucrat(){
 }
 
-std::string Bureaucrat::getName()const{
+std::string Bureaucrat::getName(){
 	return _name;
 }
 
-int Bureaucrat::getGrade()const{
+int Bureaucrat::getGrade(){
 	return _grade;
 }
 
@@ -46,24 +46,4 @@ const char *Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
 		return "Grade is too low";
-}
-
-void Bureaucrat::incrementGrade(){
-	if (_grade <= 1){
-		throw GradeTooHighException();
-	}
-	_grade--;
-}
-
-void Bureaucrat::decrementGrade(){
-	if (150 <= _grade){
-		throw GradeTooLowException();
-	}
-	_grade++;
-}
-
-std::ostream& operator<<(std::ostream &os , const Bureaucrat &obj)
-{
-	os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
-	return os;
 }
