@@ -2,12 +2,14 @@ CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = "Mommy_when_I_grow_up_I_want_to_be_a_bureaucrat!"
+NAME = 'Form_up,_maggots!'
 
 SRCS = main.cpp\
-	   Bureaucrat.cpp
+	   Bureaucrat.cpp \
+	   Form.cpp
 
-HEADERS = Bureaucrat.hpp
+HEADERS = Bureaucrat.hpp\
+		  Form.hpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
