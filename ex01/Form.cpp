@@ -1,4 +1,5 @@
 #include "Form.hpp"
+
 Form::Form()
 	:_name("default"),
 	 _singed(false),
@@ -40,6 +41,21 @@ int	Form::getSingGrade()const{
 
 int	Form::getExeGrade()const{
 	return (_exeGrade);
+}
+
+void	Form::beSigned(const Bureaucrat &bureaucrat){
+	if (this->_singGrade < bureaucrat.getGrade())
+		throw GradeTooLowException();
+	else
+		this->_singed = true;
+}
+
+const char *Form::GradeTooHighException::what() const throw() {
+		return "Grade is too high";
+}
+
+const char *Form::GradeTooLowException::what() const throw() {
+		return "Grade is too low";
 }
 
 std::ostream & operator<<(std::ostream &os, const Form &obj){
