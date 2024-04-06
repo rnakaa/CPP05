@@ -2,7 +2,7 @@
 #define BUREAUCRAT_HPP
 #include <exception>
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Bureaucrat {
 private:
@@ -29,7 +29,8 @@ public:
 
   const std::string &getName() const;
   const size_t &getGrade() const;
-	void signForm(Form & form )const;
+	void signForm(AForm & form )const;
+	void executeForm(AForm const & form)const;
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);

@@ -54,11 +54,11 @@ const std::string &Bureaucrat::getName() const { return (this->_name); }
 const size_t &Bureaucrat::getGrade() const { return (this->_grade); }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj) {
-  os << obj.getName() << " bureaucrat grade " << obj.getGrady(u;
+  os << obj.getName() << " bureaucrat grade " << obj.getGrade();
   return (os);
 }
 
-void Bureaucrat::signForm(Form & form)const{
+void Bureaucrat::signForm(AForm & form)const{
 	try{
 		form.beSigned(*this);
 		std::cout << this->getName() << " singed " << form.getName()  << "."<< std::endl;
@@ -66,7 +66,14 @@ void Bureaucrat::signForm(Form & form)const{
 	catch(const std::exception &e){
 		std::cout << e.what() << std::endl;
 		std::cout << this->getName() << " couldn’t sign " << form.getName() << " becouse " << "form is unsigned."<< std::endl;
+	}
+}
 
-	
+void Bureaucrat::executeForm(AForm const & form)const{
+	try{
+		form.execute(*this);
+	}
+	catch(const std::exception &e){
+		std::cout << e.what() << std::endl;
 	}
 }

@@ -4,12 +4,18 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = 'Form_up,_maggots!'
 
-SRCS = main.cpp\
-	   Bureaucrat.cpp \
-	   Form.cpp
+SRCS = 	AForm.cpp \
+	Bureaucrat.cpp \
+	PresidentialPardonForm.cpp \
+	RobotomyRequestForm.cpp \
+	ShrubberyCreationForm.cpp \
+	main.cpp
 
-HEADERS = Bureaucrat.hpp\
-		  Form.hpp
+HEADERS = 	AForm.hpp \
+		Bureaucrat.hpp \
+		PresidentialPardonForm.hpp \
+		RobotomyRequestForm.hpp \
+		ShrubberyCreationForm.hpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
@@ -24,15 +30,15 @@ all:$(NAME)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJS) 
+	rm -f $(OBJS)
 
 .PHONY: fclean
 fclean: clean
-	rm -f $(NAME) 
+	rm -f $(NAME)
 
 .PHONY:re
 re:		fclean all
 
 .PHONY:run
-run: all $(NAME) 
+run: all $(NAME)
 	./$(NAME)

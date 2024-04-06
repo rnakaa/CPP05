@@ -1,20 +1,22 @@
 #ifndef FORM_HPP 
 #define FORM_HPP
 #include <iostream>
+#include <string>
 class Bureaucrat;
 
-class Form{
+class AForm{
 	private:
 		const std::string _name;
 		bool _signed;
 		const size_t _signGrade;
 		const size_t _exeGrade;
 	public:
-		Form();
-		Form(const std::string &name);
-		Form & operator=(const Form & cp);
-		Form(const Form & cp);
-		~Form();
+		AForm();
+		AForm(const std::string &name);
+		AForm(const std::string &name, size_t signGrade, size_t exeGrade);
+		AForm & operator=(const AForm & cp);
+		AForm(const AForm & cp);
+		virtual ~AForm();
 		const std::string &getName()const;
 		bool getSigned()const;
 		size_t getSignGrade()const;
@@ -28,8 +30,9 @@ class Form{
 			const char *what() const throw();
 		};
 		
+		virtual void execute(Bureaucrat const & executor) const = 0;
 		
 };
-std::ostream & operator<<(std::ostream &os, const Form &obj);
+std::ostream & operator<<(std::ostream &os, const AForm &obj);
 
 #endif // FORM
