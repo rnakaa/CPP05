@@ -17,17 +17,20 @@ public:
   Bureaucrat &operator=(Bureaucrat &rhs);
   ~Bureaucrat();
 
+	//getter
+  const std::string &getName() const;
+  const size_t &getGrade() const;
+
+	//exception
   class GradeTooHighException : public std::exception {
   public:
     const char *what() const throw();
   };
+
   class GradeTooLowException : public std::exception {
   public:
     const char *what() const throw();
   };
-
-  const std::string &getName() const;
-  const size_t &getGrade() const;
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
