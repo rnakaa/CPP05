@@ -12,6 +12,8 @@ class Form{
 	public:
 		Form();
 		Form(const std::string &name);
+		Form(const std::string &name, const int signNum);
+		Form(const std::string &name, const int signNum, const int exeNum);
 		Form & operator=(const Form & cp);
 		Form(const Form & cp);
 		~Form();

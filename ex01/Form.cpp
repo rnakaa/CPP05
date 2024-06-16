@@ -7,6 +7,26 @@ Form::Form()
 Form::Form(const std::string &name)
     : _name(name), _signed(false), _signGrade(75), _exeGrade(75) {}
 
+Form::Form(const std::string &name, const int signNum)
+	: _name(name), _signed(false), _signGrade(signNum), _exeGrade(75) {
+		if(signNum < 1){
+			throw GradeTooLowException();
+		}	
+		else if(signNum > 150){
+			throw GradeTooHighException();
+		}
+	}
+
+Form::Form(const std::string &name, const int signNum, const int exeNum)
+	: _name(name), _signed(false), _signGrade(signNum), _exeGrade(exeNum) {
+		if(signNum < 1 || exeNum < 1){
+			throw GradeTooLowException();
+		}	
+		else if(signNum > 150 || exeNum > 150){
+			throw GradeTooHighException();
+		}
+	}
+
 Form::Form(const Form &cp) : _name(cp.getName()), _signed(cp.getSigned()),
       _signGrade(cp.getSignGrade()), _exeGrade(cp.getExeGrade()) {}
 
