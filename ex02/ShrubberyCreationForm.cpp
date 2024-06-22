@@ -1,7 +1,10 @@
 #include "ShrubberyCreationForm.hpp"
 
+ShrubberyCreationForm::ShrubberyCreationForm()
+    : AForm("Shrubery", 145, 137) {}
+
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &name)
-    : AForm(name, 145, 135) {}
+    : AForm(name, 145, 137) {}
 
 ShrubberyCreationForm &
 ShrubberyCreationForm::operator=(const ShrubberyCreationForm &cp) {
@@ -21,7 +24,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 
   if (!this->getSigned()) {
     throw NotSigned();
-  }
+	}
   if (executor.getGrade() <= this->getExeGrade()) {
     std::ofstream ofs(file_name.c_str());
     if (!ofs.is_open()) {
@@ -34,10 +37,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
     ofs << " | " << std::endl;
     ofs.close();
   }
-}
-
-const char *ShrubberyCreationForm::NotSigned::what() const throw() {
-  return "Not Signed";
 }
 
 const char *ShrubberyCreationForm::NotOpenException::what() const throw() {

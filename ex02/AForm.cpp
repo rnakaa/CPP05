@@ -52,3 +52,7 @@ std::ostream &operator<<(std::ostream &os, const AForm &obj) {
      << ", execute grade = " << obj.getExeGrade();
   return os;
 }
+
+const char *AForm::NotSigned::what() const throw() {
+  return "Not Signed";
+}

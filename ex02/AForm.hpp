@@ -31,6 +31,10 @@ class AForm{
 		};
 		
 		virtual void execute(Bureaucrat const & executor) const = 0;
+
+		class  NotSigned : public std::exception{
+			const char *what() const throw();
+		};
 		
 };
 std::ostream & operator<<(std::ostream &os, const AForm &obj);

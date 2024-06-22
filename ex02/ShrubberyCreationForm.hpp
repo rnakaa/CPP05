@@ -15,9 +15,6 @@ class ShrubberyCreationForm : public AForm{
 		~ShrubberyCreationForm();
 		void execute(Bureaucrat const & executor) const;
 
-		class  NotSigned : public std::exception{
-			const char *what() const throw();
-		};
 		class NotOpenException : public std::exception{
 			const char *what() const throw();
 		};
