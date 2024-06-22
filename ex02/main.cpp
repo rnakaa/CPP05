@@ -4,49 +4,42 @@
 #include "RobotomyRequestForm.hpp"
 #include "AForm.hpp"
 
-int main (){
-	try{
-		Bureaucrat test("namu", 151);
-		std::cout  << "Bureaucrat is created\n";
-	}
-	catch(std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	try{
-		Bureaucrat test("namu", -1);
-		std::cout  << "Bureaucrat is created\n";
-	}
-	catch(std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	try{
-		Bureaucrat test("namu", 1);
-		std::cout  << "Bureaucrat is created\n";
-	}
-	catch(std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
 
+int main (){
 	//Shubbery
-	std::cout  <<"\n------------------------------" << std::endl;
 	try{
 		Bureaucrat brct("Shrubbery", 50);
 		ShrubberyCreationForm form("shrubbery_form");
-		std::cout << "\033[32m" << "Shrubbery :" << "\033[0m" << brct.getGrade()<< "\nForm :" << "sign=" << form.getSignGrade() << form.getSignGrade()  << " execute=" << form.getExeGrade()<< std::endl;
+		std::cout << MAGENTA << "Shrubbery" << RESET << std::endl;
+		std::cout << GREEN << "Bureaucrat grade:"  << brct.getGrade() << RESET << std::endl;
+		std::cout << GREEN << "Form :" << "sign=" << form.getSignGrade() << " execute=" << form.getExeGrade() << RESET<< std::endl << std::endl;
+		std::cout << GREEN << "sign" << RESET << std::endl;
 		brct.signForm(form);
+		std::cout << GREEN << "ecxecute" << RESET << std::endl;
 		form.execute(brct);
 	}
 	catch(std::exception &e){
 		std::cout << e.what() << std::endl;
 	}
+	std::cout << YELLOW << "------------------------------" << RESET<< std::endl<< std::endl;
 
-	//Robotomy
-	std::cout <<"\n------------------------------" << std::endl;
 	try{
-		Bureaucrat brct("robotomy", 5);
-		RobotomyRequestForm form("robotomy_form");
-		std::cout << "\033[35m" << "Robotomy :" << "\033[0m" << brct.getGrade() << "\nForm :" << "sign=" << form.getSignGrade() << " execute=" << form.getExeGrade()<< std::endl;
+		Bureaucrat brct("Robotomy", 5);
+		RobotomyRequestForm form("shrubbery_form");
+		std::cout << MAGENTA << "Robotomy" << RESET << std::endl;
+		std::cout << GREEN << "Bureaucrat grade:"  << brct.getGrade() << RESET << std::endl;
+		std::cout << GREEN << "Form :" << "sign=" << form.getSignGrade() << " execute=" << form.getExeGrade() << RESET<< std::endl << std::endl;
+		std::cout << GREEN << "sign" << RESET << std::endl;
 		brct.signForm(form);
+		std::cout << GREEN << "ecxecute" << RESET << std::endl;
 		form.execute(brct);
 	}
 	catch(std::exception &e){
@@ -54,12 +47,16 @@ int main (){
 	}
 
 	//President
-	std::cout << "\n------------------------------" << std::endl;
+	std::cout << YELLOW << "------------------------------" << std::endl << std::endl;
 	try{
-		Bureaucrat brct("president", 5);
-		PresidentialPardonForm form("president_form");
-		std::cout << "\033[31m" << "President :" << "\033[0m"<< brct.getGrade()<< "\nForm :" << "sign=" << form.getSignGrade() << form.getSignGrade()  << " execute=" << form.getExeGrade()<< std::endl;
+		Bureaucrat brct("President", 5);
+		PresidentialPardonForm form("shrubbery_form");
+		std::cout << MAGENTA << "President" << RESET << std::endl;
+		std::cout << GREEN << "Bureaucrat grade:"  << RESET<< brct.getGrade() << std::endl;
+		std::cout << GREEN << "Form :" << RESET << "sign=" << form.getSignGrade() << " execute=" << form.getExeGrade() << RESET<< std::endl << std::endl;
+		std::cout << GREEN << "sign" << RESET << std::endl;
 		brct.signForm(form);
+		std::cout << GREEN << "ecxecute" << RESET << std::endl;
 		form.execute(brct);
 	}
 	catch(std::exception &e){
