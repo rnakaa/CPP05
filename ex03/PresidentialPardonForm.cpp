@@ -3,6 +3,9 @@
 PresidentialPardonForm::PresidentialPardonForm(const std::string &name)
     : AForm(name, 25, 5) {}
 
+PresidentialPardonForm::PresidentialPardonForm()
+    : AForm("President_form", 25, 5) {}
+
 PresidentialPardonForm &
 PresidentialPardonForm::operator=(const PresidentialPardonForm &cp) {
   if (this != &cp) {
@@ -24,8 +27,4 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
   if (executor.getGrade() <= this->getExeGrade()) {
     std::cout << "Zaphod Beeblebrox has pardoned " + this->getName() + "." << std::endl;
   }
-}
-
-const char *PresidentialPardonForm::NotSigned::what() const throw() {
-  return "Not Signed";
 }

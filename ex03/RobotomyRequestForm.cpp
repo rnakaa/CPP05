@@ -1,5 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm():AForm("Robotomy_file", 72, 45){}
+
 RobotomyRequestForm::RobotomyRequestForm(const std::string &name)
     : AForm(name, 72, 45) {}
 
@@ -30,10 +32,6 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
     } else
       throw FailRobotomy();
   }
-}
-
-const char *RobotomyRequestForm::NotSigned::what() const throw() {
-  return "Not Signed";
 }
 
 const char *RobotomyRequestForm::FailRobotomy::what() const throw() {

@@ -9,21 +9,17 @@ class Bureaucrat;
 
 class ShrubberyCreationForm : public AForm{
 	public:
+		ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string &name);
 		ShrubberyCreationForm & operator=(const ShrubberyCreationForm & cp);
 		ShrubberyCreationForm(const ShrubberyCreationForm & cp);
 		~ShrubberyCreationForm();
+
 		void execute(Bureaucrat const & executor) const;
 
-		class  NotSigned : public std::exception{
-			const char *what() const throw();
-		};
 		class NotOpenException : public std::exception{
 			const char *what() const throw();
 		};
-
-	private:
-		ShrubberyCreationForm();
 };
 
 #endif 

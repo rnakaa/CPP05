@@ -1,6 +1,14 @@
 #include "Intern.hpp"
 Intern::Intern(){}
 
+Intern::Intern(const Intern &intern){*this = intern;}
+
+Intern &Intern::operator=(const Intern &intern){
+	if(this != &intern) {
+	}
+	return (*this);
+}
+
 Intern::~Intern(){}
 
 AForm* Intern::makeForm(const std::string form, const std::string name)const {

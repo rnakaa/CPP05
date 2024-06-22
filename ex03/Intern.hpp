@@ -8,14 +8,13 @@
 #include "ShrubberyCreationForm.hpp"
 
 class Intern {
-private:
-  void decrementGrade();
-
 public:
   Intern();
   ~Intern();
+  Intern(const Intern &intern);
+  Intern &operator=(const Intern &intern);
 
-	AForm* makeForm(const std::string form, const std::string name)const;
+  AForm* makeForm(const std::string form, const std::string name)const;
 
   class NoSuchForm : public std::exception {
   public:

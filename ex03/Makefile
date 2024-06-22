@@ -1,6 +1,6 @@
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 NAME = 'Form_up,_maggots!'
 
@@ -35,7 +35,7 @@ clean:
 
 .PHONY: fclean
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) 
 
 .PHONY:re
 re:		fclean all
